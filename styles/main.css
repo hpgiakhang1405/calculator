@@ -69,7 +69,7 @@ body {
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -113,16 +113,17 @@ body {
     font-weight: 600;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .btn:hover {
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 .btn:active {
     transform: scale(0.85);
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 .btn-function {
