@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --radius: 20px;
+}
+
+html {
+    font-family: 'Poppins', serif;
+}
+
+html[data-theme='light'] {
+    --body-color: #ffffff;
+    --bg-color: #f7f8fb;
+    --black-color: #424242;
+    --white-color: #ffffff;
+    --gray-color: #858585;
+    --text-btn-color: #109dff;
+    --bg-btn-color: #ade2ff;
+
+    .dark-icon {
+        display: none;
+    }
+
+    .light-icon {
+        display: inline-block;
+    }
+}
+
+html[data-theme='dark'] {
+    --body-color: #080b16;
+    --bg-color: #17181a;
+    --black-color: #ffffff;
+    --white-color: #303136;
+    --gray-color: #a5a5a5;
+    --text-btn-color: #109dff;
+    --bg-btn-color: #005db2;
+
+    .dark-icon {
+        display: inline-block;
+    }
+
+    .light-icon {
+        display: none;
+    }
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.calculator {
+    width: min-content;
+    height: 600px;
+    background-color: var(--bg-color);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.screen {
+    height: 40%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.input {
+    color: var(--black-color);
+    font-size: 48px;
+    line-height: 1;
+    word-break: break-word;
+}
+
+.output {
+    color: var(--gray-color);
+    font-size: 36px;
+    line-height: 1;
+    word-break: break-word;
+}
+
+.operation {
+    display: grid;
+    grid-template-columns: repeat(4, 56px);
+    grid-template-rows: repeat(5, 56px);
+    gap: 10px;
+}
+
+.btn {
+    background-color: var(--white-color);
+    color: var(--text-btn-color);
+    font-size: 24px;
+    border-radius: var(--radius);
+    padding: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn:active {
+    transform: scale(0.85);
+    opacity: 0.7;
+}
+
+.btn-function {
+    color: var(--gray-color);
+}
+
+.btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-operator {
+    background-color: var(--bg-btn-color);
+}
+
+.btn-special {
+    background-color: var(--text-btn-color);
+    color: var(--white-color);
+    box-shadow: var(--text-btn-color) 0px 4px 12px;
+}
