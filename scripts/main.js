@@ -64,7 +64,7 @@ function handleBtnClick(inputData) {
 }
 
 const html = document.documentElement;
-const theme = localStorage.getItem('theme');
+let theme = localStorage.getItem('theme');
 if (!theme) theme = 'light';
 html.classList.add(theme);
 localStorage.setItem('theme', theme);
