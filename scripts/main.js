@@ -63,28 +63,23 @@ function handleBtnClick(inputData) {
     if (inputData === 'delete' && output.textContent === '=0') output.textContent = '';
 }
 
-const lightIcon = document.querySelector('.light-icon');
-const darkIcon = document.querySelector('.dark-icon');
-
+const html = document.documentElement;
 const theme = localStorage.getItem('theme');
 if (!theme) theme = 'light';
-document.documentElement.setAttribute('data-theme', theme);
-if (theme === 'light') lightIcon.style.display = 'inline-block';
-else darkIcon.style.display = 'inline-block';
+html.classList.add(theme);
+localStorage.setItem('theme', theme);
 
 function switchTheme() {
-    let currentTheme = document.documentElement.getAttribute('data-theme');
+    const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
-        currentTheme = 'dark';
-        lightIcon.style.display = 'none';
-        darkIcon.style.display = 'inline-block';
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
     } else {
-        currentTheme = 'light';
-        lightIcon.style.display = 'inline-block';
-        darkIcon.style.display = 'none';
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
     }
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('theme', currentTheme);
 }
 
 const btnList = document.querySelectorAll('.btn');
