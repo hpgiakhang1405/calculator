@@ -22,14 +22,6 @@ html[data-theme='light'] {
     --gray-color: #858585;
     --text-btn-color: #109dff;
     --bg-btn-color: #ade2ff;
-
-    .dark-icon {
-        display: none;
-    }
-
-    .light-icon {
-        display: inline-block;
-    }
 }
 
 html[data-theme='dark'] {
@@ -40,14 +32,6 @@ html[data-theme='dark'] {
     --gray-color: #a5a5a5;
     --text-btn-color: #109dff;
     --bg-btn-color: #005db2;
-
-    .dark-icon {
-        display: inline-block;
-    }
-
-    .light-icon {
-        display: none;
-    }
 }
 
 body {
@@ -143,5 +127,11 @@ body {
 .btn-special {
     background-color: var(--text-btn-color);
     color: var(--white-color);
+    -webkit-box-shadow: var(--text-btn-color) 0px 4px 12px;
     box-shadow: var(--text-btn-color) 0px 4px 12px;
+}
+
+.light-icon,
+.dark-icon {
+    display: none;
 }

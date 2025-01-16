@@ -63,13 +63,26 @@ function handleBtnClick(inputData) {
     if (inputData === 'delete' && output.textContent === '=0') output.textContent = '';
 }
 
+const lightIcon = document.querySelector('.light-icon');
+const darkIcon = document.querySelector('.dark-icon');
+
 const theme = localStorage.getItem('theme');
-document.documentElement.setAttribute('data-theme', theme ? theme : 'light');
+if (!theme) theme = 'light';
+document.documentElement.setAttribute('data-theme', theme);
+if (theme === 'light') lightIcon.style.display = 'inline-block';
+else darkIcon.style.display = 'inline-block';
 
 function switchTheme() {
     let currentTheme = document.documentElement.getAttribute('data-theme');
-    if (currentTheme === 'light') currentTheme = 'dark';
-    else currentTheme = 'light';
+    if (currentTheme === 'light') {
+        currentTheme = 'dark';
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'inline-block';
+    } else {
+        currentTheme = 'light';
+        lightIcon.style.display = 'inline-block';
+        darkIcon.style.display = 'none';
+    }
     document.documentElement.setAttribute('data-theme', currentTheme);
     localStorage.setItem('theme', currentTheme);
 }
