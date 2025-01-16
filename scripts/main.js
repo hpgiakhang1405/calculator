@@ -63,23 +63,19 @@ function handleBtnClick(inputData) {
     if (inputData === 'delete' && output.textContent === '=0') output.textContent = '';
 }
 
-const html = document.documentElement;
 let theme = localStorage.getItem('theme');
-if (!theme) theme = 'light';
-html.classList.add(theme);
-localStorage.setItem('theme', theme);
+if (!theme) {
+    theme = 'light';
+    localStorage.setItem('theme', theme);
+}
+document.documentElement.setAttribute('data-theme', theme);
 
 function switchTheme() {
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-        html.classList.remove('light');
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        html.classList.remove('dark');
-        html.classList.add('light');
-        localStorage.setItem('theme', 'light');
-    }
+    let currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'light') currentTheme = 'dark';
+    else currentTheme = 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
 }
 
 const btnList = document.querySelectorAll('.btn');
